@@ -1,35 +1,42 @@
-apply plugin: "org.springframework.boot"
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
-ext {
-    applicationName = 'scores-api'
-}
 
 bootJar {
-    enabled = true
     launchScript()
-    archiveBaseName = 'scores'
-    archiveClassifier = "bootable"
+    archiveBaseName = 'polyglot-server'
+    archiveClassifier = "bootable-test"
+    enabled = true
 }
+
+
+springBoot {
+    mainClass = 'be.dev.scores.ScoresApplication'
+}
+
+bootRun {
+    println "Using target environment as spring.profile: tst"
+    args = ["--spring.profiles.active=tst"]
+}
+
 
 
 dependencies {
     implementation project(":domein")
     implementation project(":applicatie")
+    implementation project(":frontend")
 
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    //implementation 'org.springframework.boot:spring-boot-starter-amqp'
-    implementation 'org.springframework.cloud:spring-cloud-starter'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.flywaydb:flyway-core'
-    //implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    //testImplementation 'org.springframework.amqp:spring-rabbit-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     implementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo:4.17.0'

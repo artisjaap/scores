@@ -3,3 +3,4 @@ rootProject.name = 'scores'
 include "applicatie"
 include "domein"
 include "infrastructuur"
+include "frontend"

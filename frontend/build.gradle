@@ -1,0 +1,31 @@
+
+plugins {
+  id "com.github.node-gradle.node" version "7.1.0"
+  id "java-library"
+}
+
+ext {
+  environmentToBuild = project.findProperty("targetEnv") ? targetEnv : "tst"
+}
+node {
+  version = "20.11.0"
+  npmVersion = "10.2.4"
+  download = true
+}
+project.afterEvaluate {
+  tasks."npm_run_build${environmentToBuild}".inputs.files fileTree("src")
+  tasks."npm_run_build${environmentToBuild}".inputs.file "package.json"
+  tasks."npm_run_build${environmentToBuild}".inputs.file "package-lock.json"
+  tasks."npm_run_build${environmentToBuild}".outputs.dir "dist"
+}
+
+println "Applying environment '${environmentToBuild}' for frontend."
+jar.dependsOn "npm_run_build${environmentToBuild}"
+
+jar {
+  from 'dist/frontend/browser' into 'public'
+}
+
+clean {
+  delete "dist"
+}
