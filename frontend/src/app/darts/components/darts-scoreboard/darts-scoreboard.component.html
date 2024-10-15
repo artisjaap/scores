@@ -1,0 +1,22 @@
+<div class="header fully-inflexible icon-menu" >
+  <span [routerLink]="['/snooker', 'scoreboard']" ><img src="/assets/snooker.png" width="32px" alt=""></span>
+  <span [routerLink]="['/darts', 'scoreboard']" ><img src="/assets/darts.png" width="32px" alt=""></span>
+</div>
+<div class="main flex-container no-overflow fully-flexible">
+  <div class="game">
+    <div class="game-input">
+      <div class="game-input-selection">
+        <button mat-stroked-button (click)="inputMode = 'TABLE'">table</button>
+        <button mat-stroked-button (click)="inputMode = 'BOARD'">board</button>
+
+      </div>
+      <app-dartsboard *ngIf="inputMode === 'BOARD'"></app-dartsboard>
+      <app-dartsboard-table *ngIf="inputMode === 'TABLE'"></app-dartsboard-table>
+
+    </div>
+    <app-darts-scores></app-darts-scores>
+  </div>
+</div>
+<div class="footer fully-inflexible">
+  <app-darts-score-history></app-darts-score-history>
+</div>

@@ -1,0 +1,16 @@
+<div class="add-points">
+  <span *ngIf="currentDarts$ | async as currentDarts" class="next-points">
+    <span class="add" *ngIf="currentDarts.length > 0" (click)="removeCurrentDarts()"> X </span>
+    <span *ngFor="let d of currentDarts" class="dart">
+      {{d}}
+    </span>
+    <span  class="dart" *ngIf="currentDarts.length === 0">No score</span>
+    <span class="add" (click)="add()">
+      add
+    </span>
+  </span>
+</div>
+<div class="players">
+  <app-darts-player-score [dartPlayer$]="player1$"></app-darts-player-score>
+  <app-darts-player-score  [dartPlayer$]="player2$"></app-darts-player-score>
+</div>

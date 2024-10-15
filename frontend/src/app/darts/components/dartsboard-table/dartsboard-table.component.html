@@ -1,0 +1,8 @@
+<div class="dart-score-table">
+  <div class="dart-score-row" *ngFor="let i of numbers">
+    <div class="element single" [ngClass]="{'black':i%2===0, 'white':i%2===1}" (click)="addDart('' + i)">{{i}}</div>
+    <div class="element double"  [ngClass]="{'green':i%2===0, 'red':i%2===1}" (click)="addDart('D' + i)">D{{i}}</div>
+    <div class="element tripple"  [ngClass]="{'red':i%2===0, 'green':i%2===1}" (click)="addDart('T' + i)">T{{i}}</div>
+  </div>
+
+</div>

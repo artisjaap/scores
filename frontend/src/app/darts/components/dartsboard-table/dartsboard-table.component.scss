@@ -1,0 +1,40 @@
+.dart-score-table {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+
+  .dart-score-row {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1;
+
+    .element {
+      flex: 1;
+      width: 150px;
+      height: 30px;
+      text-align: center;
+      border: 1px solid black;
+      padding: 2px;
+
+      &.red {
+        background-color: red;
+      }
+
+      &.green {
+        background-color: green;
+
+      }
+
+      &.black {
+        background-color: black;
+        color: white;
+      }
+
+      &.white {
+        background-color: wheat;
+        color: black;
+      }
+    }
+  }
+}
+

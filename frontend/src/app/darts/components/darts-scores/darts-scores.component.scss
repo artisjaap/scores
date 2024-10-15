@@ -1,0 +1,49 @@
+
+:host {
+  display: flex;
+  flex-flow: column;
+  flex: 1 1 auto;
+}
+
+.add-points{
+  display: flex;
+  border-bottom: 2px solid dodgerblue;
+
+  .next-points{
+    display: flex;
+    flex: 1 1 auto;
+    margin: 2px 0 5px;
+    justify-content: center;
+  }
+}
+.players {
+
+  display: flex;
+  flex-flow: row;
+}
+
+.dart {
+  cursor: pointer;
+  background-color: deepskyblue;
+  border-radius: 20px;
+  color: white;
+  padding: 5px 15px ;
+
+
+}
+
+.add {
+  cursor: pointer;
+  background-color: deeppink;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 15px ;
+}
+
+.score-row {
+  margin: 5px
+}
+
+.ending-row {
+  margin: 5px;
+}

@@ -1,0 +1,42 @@
+:host {
+  flex: 1;
+  border-left: 2px solid dodgerblue;
+}
+
+.name {
+  text-align: center;
+}
+.score {
+  margin: 5px
+}
+
+.dart {
+  background-color: dodgerblue;
+  color: white;
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 20px;
+
+  &.ending {
+    background-color: lightslategray;
+    color: black;
+  }
+}
+
+.visit-score {
+  margin: 5px;
+  padding: 5px 10px;
+  color: white;
+  background-color: hotpink;
+  border-radius: 20px
+}
+
+.score-row {
+  margin: 15px 0;
+}
+
+.ending-row{
+  margin: 15px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: column nowrap;
+}
+
+.game {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1;
+  margin: 10px 30px;
+
+  .game-input {
+    display: flex;
+    flex-flow: column nowrap;
+
+  }
+
+  .game-input-selection {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin: 0 0 10px 0;
+  }
+}
+
+.history {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+
+.footer {
+  height: 210px;
+}

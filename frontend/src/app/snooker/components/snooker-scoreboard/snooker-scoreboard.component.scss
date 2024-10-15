@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: column;
+}
+
+
+.players {
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row nowrap;
+}
+
+.footer {
+  height: 210px;
+}

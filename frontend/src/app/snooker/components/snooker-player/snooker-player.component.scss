@@ -1,0 +1,47 @@
+:host {
+  flex: 1
+}
+
+.player {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+
+  border: 2px solid midnightblue;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 20px;
+
+  align-content: center;
+
+  .name {
+    font-size: 2em;
+    text-align: center;
+
+
+  }
+
+  .score {
+    font-size: 20em;
+    text-align: center;
+  }
+
+  .break {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .current {
+    color: dodgerblue;
+  }
+
+  .fault {
+    color: deeppink;
+  }
+}
+
+.stats {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}

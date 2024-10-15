@@ -1,0 +1,83 @@
+.game-overall{
+  display: flex;
+  flex-flow: row nowrap
+}
+
+.game-break-info{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.spacer {
+  flex: 1
+}
+
+.game-points {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 10px;
+  justify-content: space-between;
+  background-color: #8080806e;
+}
+
+.game-corrections{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.mat-mdc-outlined-button {
+  &.ball-red {
+    border-color: red;
+    color: red;
+    background-color: #ff000020;
+    padding: 40px 60px;
+  }
+  &.ball-yellow {
+    border-color: yellow;
+    color: yellow;
+    background-color: #ffff0020;
+    padding: 40px 60px;
+  }
+  &.ball-green {
+    border-color: darkgreen;
+    color: darkgreen;
+    background-color: #00640020;
+    padding: 40px 60px;
+  }
+  &.ball-brown {
+    border-color: saddlebrown;
+    color: saddlebrown;
+    background-color: #8b451320;
+    padding: 40px 60px;
+  }
+  &.ball-blue {
+    border-color: darkblue;
+    color: darkblue;
+    background-color: #00008b20;
+    padding: 40px 60px;
+  }
+  &.ball-pink {
+    border-color: deeppink;
+    color: deeppink;
+    background-color: #ff149320;
+    padding: 40px 60px;
+  }
+  &.ball-black {
+    border-color: black;
+    color: black;
+    background-color: #00000020;
+    padding: 40px 60px;
+  }
+  &.ball-white {
+    border-color: white;
+    color: white;
+    background-color: #FFFFFF20;
+    padding: 40px 20px;
+  }
+
+  &.active {
+    color: dodgerblue;
+  }
+}
