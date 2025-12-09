@@ -15,14 +15,12 @@ import {MatListModule} from '@angular/material/list';
 import {SnookerModule} from './snooker/snooker.module';
 import {DartsModule} from './darts/darts.module';
 import {ScoresDashboardComponent} from './scores-dashboard/scores-dashboard.component';
-import { WebSocketDemoComponent } from './components/websocket-demo/websocket-demo.component';
-import { WebSocketService } from './services/websocket.service';
+import {SocketDispatchModule} from "./socket-dispatcher/socket-dispatch.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScoresDashboardComponent,
-    WebSocketDemoComponent,
+    ScoresDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +38,9 @@ import { WebSocketService } from './services/websocket.service';
     MatListModule,
     SnookerModule,
     DartsModule,
+    SocketDispatchModule
   ],
-  providers: [WebSocketService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

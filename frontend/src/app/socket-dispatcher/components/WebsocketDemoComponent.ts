@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { WebSocketService } from '../../services/websocket.service';
 import { Subscription } from 'rxjs';
+import {WebSocketService} from "../services/websocket.service";
 
 @Component({
   selector: 'app-websocket-demo',
@@ -30,7 +30,7 @@ import { Subscription } from 'rxjs';
     input { margin-right: 10px; }
   `]
 })
-export class WebSocketDemoComponent implements OnInit, OnDestroy {
+export class WebsocketDemoComponent implements OnInit, OnDestroy {
   message = '';
   receivedMessages: any[] = [];
   private messageSubscription: Subscription = new Subscription();

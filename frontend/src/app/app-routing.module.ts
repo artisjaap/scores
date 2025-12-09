@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {ScoresDashboardComponent} from './scores-dashboard/scores-dashboard.component';
-import { WebSocketDemoComponent } from './components/websocket-demo/websocket-demo.component';
 
 const routes: Routes = [
   {
@@ -15,10 +14,6 @@ const routes: Routes = [
   {
     path: "darts",
     loadChildren: () => import('./darts/darts.module').then(m => m.DartsModule)
-  },
-  {
-    path: "websocket-demo",
-    component: WebSocketDemoComponent
   }
 ];
 
