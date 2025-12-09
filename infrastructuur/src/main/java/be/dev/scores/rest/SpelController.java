@@ -3,6 +3,7 @@ package be.dev.scores.rest;
 import be.dev.scores.acties.SpelActies;
 import be.dev.scores.model.Spel;
 import be.dev.scores.model.Speler;
+import be.dev.scores.model.Spelverloop;
 import be.dev.scores.model.Sport;
 import be.dev.scores.rest.dto.NieuwSpelDto;
 import be.dev.scores.rest.dto.SpelDto;
@@ -22,7 +23,7 @@ public class SpelController {
 
     @GetMapping
     public @ResponseBody ResponseEntity<List<SpelDto>> alleSpelen() {
-        List<Spel> spelen = spelActies.zoekAlleSpelen();
+        List<Spel<Spelverloop>> spelen = spelActies.zoekAlleSpelen();
         return ResponseEntity.ok(mapper.map(spelen, SpelDto.class));
     }
 

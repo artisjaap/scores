@@ -19,12 +19,15 @@ public class DefaultSpelService implements SpelService {
     private final SpringDataJpaSportRepository sportRepository;
     private final DefaultViewMapper mapper;
 
-    public Spel bewaar(Spel spel) {
+    public Spel bewaar(SpelAanvraag spel) {
         List<Integer> spelers = spel.spelers().stream().map(Speler::id).toList();
-        List<SpelerEntiteit> spelerEntities = spelerRepository.findAllById(spelers);
+        List<DeelnemerEntiteit> spelerEntities = spelerRepository.findAllById(spelers)
+                .stream()
+                .map(speler -> DeelnemerEntiteit.builder().speler(speler).build())
+                .toList();
         SportEntiteit sportEntiteit = sportRepository.findById(spel.sport().id()).get();
         SpelEntiteit spelEntiteit = SpelEntiteit.builder()
-                .spelers(spelerEntities)
+                .deelnemers(spelerEntities)
                 .sport(sportEntiteit)
                 .build();
 
@@ -33,13 +36,20 @@ public class DefaultSpelService implements SpelService {
         return mapper.map(save, Spel.class);
     }
 
-    public List<Spel> zoekAlleSpelen() {
+    public List<Spel<Spelverloop>> zoekAlleSpelen() {
         return spelRepository.findAll().stream().map(entity ->
                         Spel.builder()
                                 .id(entity.getId())
-                                .spelers(mapper.map(entity.getSpelers(), Speler.class))
+                                .deelnemers(mapper.map(entity.getDeelnemers(), Deelnemer.class))
                                 .sport(mapper.map(entity.getSport(), Sport.class))
                                 .build())
                 .toList();
+    }
+
+    @Override
+    public Spel findById(int id) {
+        return spelRepository.findById(id)
+                .map(entity -> mapper.map(entity, Spel.class))
+                .orElseThrow(() -> new IllegalStateException());
     }
 }

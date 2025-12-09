@@ -6,25 +6,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "SPEL")
+@Table(name = "DEELNEMER")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class SpelEntiteit {
+public class DeelnemerEntiteit {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany
-    @JoinTable(name = "SPEL_DEELNEMER", joinColumns = @JoinColumn(name = "SPEL_ID"), inverseJoinColumns = @JoinColumn(name = "DEELNEMER_ID"))
-    private List<DeelnemerEntiteit> deelnemers;
+    @Column
+    private int index;
 
     @ManyToOne
-    @JoinColumn(name = "SPORT_ID")
-    private SportEntiteit sport;
+    @JoinColumn(name = "SPELER_ID")
+    private SpelerEntiteit speler;
 }

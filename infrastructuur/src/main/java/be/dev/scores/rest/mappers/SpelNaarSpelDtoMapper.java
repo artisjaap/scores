@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class SpelNaarSpelDtoMapper implements Mapper<Spel, SpelDto> {
     private final SportNaarSportDtoMapper sportMapper;
-    private final SpelerNaarDeelnemerDtoMapper deelnemerMapper;
+    private final DeelnemerNaarDeelnemerDtoMapper deelnemerMapper;
 
     @Override
     public SpelDto map(Spel spel) {
         return SpelDto.builder()
                 .id(spel.id())
                 .sport(sportMapper.map(spel.sport()))
-                .spelers(deelnemerMapper.mapList(spel.spelers()))
+                .deelnemers(deelnemerMapper.mapList(spel.deelnemers()))
                 .build();
     }
 }

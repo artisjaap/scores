@@ -172,3 +172,6 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/scoene/
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 39 more
+2024-10-25 20:34:26.886363+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "SPEL_DEELNEMER" not found; SQL statement:
+select d1_0.spel_id,d1_1.id,d1_1.index,s1_0.id,s1_0.name from spel_deelnemer d1_0 join deelnemer d1_1 on d1_1.id=d1_0.deelnemer_id left join speler s1_0 on s1_0.id=d1_1.speler_id where d1_0.spel_id=? [42102-224]

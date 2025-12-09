@@ -6,19 +6,23 @@ import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 import {SnookerModule} from './snooker/snooker.module';
 import {DartsModule} from './darts/darts.module';
 import {ScoresDashboardComponent} from './scores-dashboard/scores-dashboard.component';
+import { WebSocketDemoComponent } from './components/websocket-demo/websocket-demo.component';
+import { WebSocketService } from './services/websocket.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ScoresDashboardComponent,
-
+    WebSocketDemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,12 +32,16 @@ import {ScoresDashboardComponent} from './scores-dashboard/scores-dashboard.comp
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     BrowserAnimationsModule,
+    FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatListModule,
     SnookerModule,
     DartsModule,
   ],
-  providers: [],
+  providers: [WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,15 @@
 package be.dev.scores.repository;
 
 import be.dev.scores.model.Spel;
+import be.dev.scores.model.SpelAanvraag;
+import be.dev.scores.model.Spelverloop;
 
 import java.util.List;
 
 public interface SpelService {
-    Spel bewaar(Spel spel);
+    Spel bewaar(SpelAanvraag spel);
 
-    List<Spel> zoekAlleSpelen();
+    List<Spel<Spelverloop>> zoekAlleSpelen();
+
+    Spel findById(int id);
 }

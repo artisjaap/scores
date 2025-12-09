@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class SpelEntiteitNaarSpelMapper implements Mapper<SpelEntiteit, Spel> {
     private final SportEntiteitNaarSportMapper sportMapper;
-    private final SpelerEntiteitNaarSpelerMapper spelerMapper;
+    private final DeelnemerEntiteitNaarDeelnemerMapper deelnemerMapper;
 
     @Override
     public Spel map(SpelEntiteit spelEntiteit) {
         return Spel.builder()
                 .sport(sportMapper.map(spelEntiteit.getSport()))
-                .spelers(spelerMapper.mapList(spelEntiteit.getSpelers()))
+                .deelnemers(deelnemerMapper.mapList(spelEntiteit.getDeelnemers()))
                 .build();
     }
 }

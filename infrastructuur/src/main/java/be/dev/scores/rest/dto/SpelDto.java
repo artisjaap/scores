@@ -5,5 +5,5 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public record SpelDto(int id, List<DeelnemerDto> spelers, SportDto sport) {
+public record SpelDto(int id, List<DeelnemerDto> deelnemers, SportDto sport) {
 }
