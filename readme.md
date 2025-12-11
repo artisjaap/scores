@@ -11,7 +11,7 @@ http://localhost:8111
 ### build image
 ```shell
 podman build --no-cache -t angular-scoreboard .
-podman run -it -p 3000:3000 --name angular-scoreboard --rm angular-scoreboard
+podman run -d -p 3000:3000 --name angular-scoreboard artisjaap/angular-scoreboard
 ```
 
 ### push image
