@@ -1,0 +1,48 @@
+# Version control
+.git
+.gitignore
+
+# IDE directories
+.idea
+.vscode
+
+# Dependency directories
+node_modules
+frontend/node_modules
+node/node_modules
+
+# Build output directories
+build
+dist
+.gradle
+.angular
+frontend/build
+frontend/dist
+frontend/.gradle
+frontend/.angular
+domein/build
+applicatie/build
+infrastructuur/build
+
+# Database files
+data
+
+# Documentation
+*.md
+README.md
+HELP.md
+readme.md
+
+# Editor config
+.editorconfig
+
+# TypeScript spec config
+tsconfig.spec.json
+
+# IDE specific files
+.idea/**
+.vscode/**
+
+# Gradle wrapper (optional - can be included if needed)
+# gradlew
+# gradlew.bat

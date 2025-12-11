@@ -59,7 +59,7 @@ export const theScoreboardInitialState: TheScoreboardState = {
     pink: 1,
     black: 1,
     maxPointsLeft: 147,
-    extraYellow: false
+    extraYellow: true
   },
 };
 
@@ -119,7 +119,7 @@ function updateTableStats(mode: ScoreboardMode, tableStats: TableStats, color: B
     let updatedTableStats = {
       ...tableStats,
       red: color === BallColor.RED && tableStats.red > 0 ? tableStats.red - 1: tableStats.red,
-      yellow: color === BallColor.YELLOW?tableStats.red === 0 && tableStats.extraYellow?1: 0: tableStats.yellow,
+      yellow: color === BallColor.YELLOW?tableStats.red === 0 && tableStats.extraYellow?0: 1: tableStats.yellow,
       green: color === BallColor.GREEN?tableStats.yellow === 0 ? 0: 1:tableStats.green,
       brown: color === BallColor.BROWN?tableStats.green === 0 ? 0: 1:tableStats.brown,
       blue: color === BallColor.BLUE?tableStats.brown === 0 ? 0: 1:tableStats.blue,
