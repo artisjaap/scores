@@ -1,14 +1,22 @@
 <div class="add-points">
-  <span *ngIf="currentDarts$ | async as currentDarts" class="next-points">
-    <span class="add" *ngIf="currentDarts.length > 0" (click)="removeCurrentDarts()"> X </span>
-    <span *ngFor="let d of currentDarts" class="dart">
-      {{d}}
+  @if (currentDarts$ | async; as currentDarts) {
+    <span class="next-points">
+      @if (currentDarts.length > 0) {
+        <span class="add" (click)="removeCurrentDarts()"> X </span>
+      }
+      @for (d of currentDarts; track d) {
+        <span class="dart">
+          {{d}}
+        </span>
+      }
+      @if (currentDarts.length === 0) {
+        <span  class="dart">No score</span>
+      }
+      <span class="add" (click)="add()">
+        add
+      </span>
     </span>
-    <span  class="dart" *ngIf="currentDarts.length === 0">No score</span>
-    <span class="add" (click)="add()">
-      add
-    </span>
-  </span>
+  }
 </div>
 <div class="players">
   <app-darts-player-score [dartPlayer$]="player1$"></app-darts-player-score>

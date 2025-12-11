@@ -10,8 +10,12 @@
         <button mat-stroked-button (click)="inputMode = 'BOARD'">board</button>
 
       </div>
-      <app-dartsboard *ngIf="inputMode === 'BOARD'"></app-dartsboard>
-      <app-dartsboard-table *ngIf="inputMode === 'TABLE'"></app-dartsboard-table>
+      @if (inputMode === 'BOARD') {
+        <app-dartsboard></app-dartsboard>
+      }
+      @if (inputMode === 'TABLE') {
+        <app-dartsboard-table></app-dartsboard-table>
+      }
 
     </div>
     <app-darts-scores></app-darts-scores>

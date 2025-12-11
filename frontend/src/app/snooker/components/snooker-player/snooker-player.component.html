@@ -1,10 +1,12 @@
-<div class="player" *ngIf="player$ | async as player" (click)="switchPlayer()">
-  <div class="name"  [ngClass]="{'current':player.currentPlayer}">{{player.name}}</div>
-  <div class="score"  [ngClass]="{ 'fault': (gameMode$|async) === ScoreboardMode.FAULT}">{{player.score}}</div>
-  <div class="break">{{player.break}}</div>
-  <div class="stats">
-    <div class="frames">Frames Won: {{player.framesWon}}</div>
-    <div class="highestbreak">Highest Break: {{player.highestBreak}}</div>
-    <div class="frames">Highest Break (Match): {{player.matchHighestBreak}}</div>
+@if (player$ | async; as player) {
+  <div class="player" (click)="switchPlayer()">
+    <div class="name"  [ngClass]="{'current':player.currentPlayer}">{{player.name}}</div>
+    <div class="score"  [ngClass]="{ 'fault': (gameMode$|async) === ScoreboardMode.FAULT}">{{player.score}}</div>
+    <div class="break">{{player.break}}</div>
+    <div class="stats">
+      <div class="frames">Frames Won: {{player.framesWon}}</div>
+      <div class="highestbreak">Highest Break: {{player.highestBreak}}</div>
+      <div class="frames">Highest Break (Match): {{player.matchHighestBreak}}</div>
+    </div>
   </div>
-</div>
+}

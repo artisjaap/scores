@@ -1,17 +1,25 @@
-<div *ngIf="dartPlayer$ | async as dartPlayer">
-  <div class="name">{{dartPlayer.name}}</div>
-  <div class="score-row" *ngFor="let score of dartPlayer.score ">
-    <span class="score">{{score.newScore}}</span>
-    <span class="dart" *ngFor="let d of score.darts">{{d}}</span>
-    <span class="visit-score" *ngIf="score.visitScore > 0">{{score.visitScore===0?'no score':score.visitScore}}</span>
-
+@if (dartPlayer$ | async; as dartPlayer) {
+  <div>
+    <div class="name">{{dartPlayer.name}}</div>
+    @for (score of dartPlayer.score ; track score) {
+      <div class="score-row">
+        <span class="score">{{score.newScore}}</span>
+        @for (d of score.darts; track d) {
+          <span class="dart">{{d}}</span>
+        }
+        @if (score.visitScore > 0) {
+          <span class="visit-score">{{score.visitScore===0?'no score':score.visitScore}}</span>
+        }
+      </div>
+    }
+    @for (endings of dartPlayer.doubleEndings; track endings) {
+      <div class="ending-row">
+        @for (endingDart of endings; track endingDart) {
+          <span  class="dart ending">
+            {{endingDart}}
+          </span>
+        }
+      </div>
+    }
   </div>
-
-  <div class="ending-row" *ngFor="let endings of dartPlayer.doubleEndings">
-    <span  class="dart ending" *ngFor="let endingDart of endings">
-      {{endingDart}}
-    </span>
-  </div>
-
-
-</div>
+}

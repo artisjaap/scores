@@ -5,26 +5,29 @@ import {WebSocketService} from "../services/websocket.service";
 @Component({
     selector: 'app-websocket-demo',
     template: `
-    <div *ngIf="isConnected$ | async; else disconnected">
-      <h3>WebSocket Status: <span style="color: green">Connected</span></h3>
+    @if (isConnected$ | async) {
       <div>
-        <input [(ngModel)]="message" placeholder="Type a message" (keyup.enter)="sendMessage()">
-        <button (click)="sendMessage()">Send</button>
+        <h3>WebSocket Status: <span style="color: green">Connected</span></h3>
+        <div>
+          <input [(ngModel)]="message" placeholder="Type a message" (keyup.enter)="sendMessage()">
+          <button (click)="sendMessage()">Send</button>
+        </div>
+        <div>
+          <h4>Received Messages:</h4>
+          <ul>
+            @for (msg of receivedMessages; track msg) {
+              <li>
+                {{ msg.timestamp | date:'medium' }} - {{ msg.message }}
+              </li>
+            }
+          </ul>
+        </div>
       </div>
-      <div>
-        <h4>Received Messages:</h4>
-        <ul>
-          <li *ngFor="let msg of receivedMessages">
-            {{ msg.timestamp | date:'medium' }} - {{ msg.message }}
-          </li>
-        </ul>
-      </div>
-    </div>
-    <ng-template #disconnected>
+    } @else {
       <h3>WebSocket Status: <span style="color: red">Disconnected</span></h3>
       <p>Attempting to reconnect...</p>
-    </ng-template>
-  `,
+    }
+    `,
     styles: [`
     div { margin: 10px; }
     input { margin-right: 10px; }
