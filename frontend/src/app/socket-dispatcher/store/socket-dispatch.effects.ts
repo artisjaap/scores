@@ -15,6 +15,7 @@ import {
   turnPlayer
 } from "../../snooker/store/snooker-scoreboard-the-scoreboard.actions";
 import {ScoreboardMode} from "../../snooker/model/model";
+import {showRemoteControlQr} from "../../store/scoreboard.actions";
 
 @Injectable()
 export class SocketDispatchEffects {
@@ -37,7 +38,7 @@ export class SocketDispatchEffects {
           case "mode fault": return setMode({mode: ScoreboardMode.FAULT});
           case "mode negative correct": return setMode({mode: ScoreboardMode.NEGATIVE_CORRECTION});
           case "mode positive correction": return setMode({mode: ScoreboardMode.POSITIVE_CORRECTION});
-
+          case "toggle remote": return showRemoteControlQr();
         }
         return noCommandOperation()
       })

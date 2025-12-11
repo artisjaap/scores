@@ -23,6 +23,8 @@
       <button mat-stroked-button color="primary" (click)="positiveCorrectionMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.POSITIVE_CORRECTION}">Correction +</button>
       <button mat-stroked-button color="primary" (click)="negativeCorrectionMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.NEGATIVE_CORRECTION}">Correction -</button>
       <button mat-stroked-button color="primary" (click)="changeNumberOfBallsMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.BALLS_LEFT_CORRECTION}">Change # Balls</button>
+      <app-qr-control></app-qr-control>
+
     </div>
     <div class="game-status">
     </div>

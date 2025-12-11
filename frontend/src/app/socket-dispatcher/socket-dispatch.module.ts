@@ -8,7 +8,6 @@ import {Subscription} from "rxjs";
 import {WebsocketDemoComponent} from "./components/WebsocketDemoComponent";
 import {FormsModule} from "@angular/forms";
 import {SocketDispatchRoutingModule} from "./socket-dispatch-routing.module";
-import {TheScoreboardState} from "../snooker/store/snooker-scoreboard-the-scoreboard.reducer";
 import {SocketDispatchState} from "./store/socket-dispatch-the-dispatch.reducer";
 import {messageReceived} from "./store/socket-dispatch.actions";
 import {EffectsModule} from "@ngrx/effects";

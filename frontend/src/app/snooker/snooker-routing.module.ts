@@ -15,7 +15,7 @@ const routes: Routes = [
           component: SnookerScoreboardComponent
         },
         {
-          path: "remote-controle",
+          path: "remote-control",
           component: RemoteControlSnookerComponent
         }
     ]

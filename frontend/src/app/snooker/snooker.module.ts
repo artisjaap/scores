@@ -9,6 +9,7 @@ import {StoreModule} from '@ngrx/store';
 import {SnookerPlayerComponent} from './components/snooker-player/snooker-player.component';
 import {SnookerScoreboardComponent} from './components/snooker-scoreboard/snooker-scoreboard.component';
 import {MatButtonModule} from '@angular/material/button';
+import {QrControlComponent} from "../components/qr-control/qr-control.component";
 
 
 
@@ -19,11 +20,12 @@ import {MatButtonModule} from '@angular/material/button';
     SnookerControlsComponent,
     SnookerLandingComponent
   ],
-  imports: [
-    CommonModule,
-    SnookerRoutingModule,
-    StoreModule.forFeature(snookerScoreboardReducer.snookerScoreboardFeatureKey, snookerScoreboardReducer.reducers),
-    MatButtonModule
-  ]
+    imports: [
+        CommonModule,
+        SnookerRoutingModule,
+        StoreModule.forFeature(snookerScoreboardReducer.snookerScoreboardFeatureKey, snookerScoreboardReducer.reducers),
+        MatButtonModule,
+        QrControlComponent
+    ]
 })
 export class SnookerModule { }
