@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {SnookerLandingComponent} from './components/snooker-landing/snooker-landing.component';
 import {SnookerScoreboardComponent} from './components/snooker-scoreboard/snooker-scoreboard.component';
+import {RemoteControlSnookerComponent} from "./components/remote-control-snooker/remote-control-snooker.component";
 
 const routes: Routes = [
    {
@@ -12,6 +13,10 @@ const routes: Routes = [
         {
           path: "scoreboard",
           component: SnookerScoreboardComponent
+        },
+        {
+          path: "remote-controle",
+          component: RemoteControlSnookerComponent
         }
     ]
    }
