@@ -4,9 +4,10 @@ import {TheDartsScoreboardState} from '../../store/darts-scoreboard-the-scoreboa
 import {addDart} from '../../store/darts-scoreboard-the-scoreboard.actions';
 
 @Component({
-  selector: 'app-dartsboard-table',
-  templateUrl: './dartsboard-table.component.html',
-  styleUrls: ['./dartsboard-table.component.scss']
+    selector: 'app-dartsboard-table',
+    templateUrl: './dartsboard-table.component.html',
+    styleUrls: ['./dartsboard-table.component.scss'],
+    standalone: false
 })
 export class DartsboardTableComponent {
 

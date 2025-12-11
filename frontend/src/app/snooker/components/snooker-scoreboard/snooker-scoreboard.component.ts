@@ -6,9 +6,10 @@ import {PlayerStats} from '../../model/model';
 import {getPlayer1, getPlayer2} from '../../store/snooker-scoreboard-the-scoreboard.selector';
 
 @Component({
-  selector: 'app-scoreboard',
-  templateUrl: './snooker-scoreboard.component.html',
-  styleUrls: ['./snooker-scoreboard.component.scss']
+    selector: 'app-scoreboard',
+    templateUrl: './snooker-scoreboard.component.html',
+    styleUrls: ['./snooker-scoreboard.component.scss'],
+    standalone: false
 })
 export class SnookerScoreboardComponent {
 

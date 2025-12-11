@@ -7,9 +7,10 @@ import {clearCurrentDartSet, commitScore} from '../../store/darts-scoreboard-the
 import {DartsPlayer} from '../../model/darts-model';
 
 @Component({
-  selector: 'app-darts-scores',
-  templateUrl: './darts-scores.component.html',
-  styleUrls: ['./darts-scores.component.scss']
+    selector: 'app-darts-scores',
+    templateUrl: './darts-scores.component.html',
+    styleUrls: ['./darts-scores.component.scss'],
+    standalone: false
 })
 export class DartsScoresComponent {
 

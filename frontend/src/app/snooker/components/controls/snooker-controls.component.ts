@@ -9,9 +9,10 @@ import {getMode, getTableStats} from '../../store/snooker-scoreboard-the-scorebo
 
 
 @Component({
-  selector: 'app-controls',
-  templateUrl: './snooker-controls.component.html',
-  styleUrls: ['./snooker-controls.component.scss']
+    selector: 'app-controls',
+    templateUrl: './snooker-controls.component.html',
+    styleUrls: ['./snooker-controls.component.scss'],
+    standalone: false
 })
 export class SnookerControlsComponent {
 

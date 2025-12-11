@@ -3,8 +3,8 @@ import { Subscription } from 'rxjs';
 import {WebSocketService} from "../services/websocket.service";
 
 @Component({
-  selector: 'app-websocket-demo',
-  template: `
+    selector: 'app-websocket-demo',
+    template: `
     <div *ngIf="isConnected$ | async; else disconnected">
       <h3>WebSocket Status: <span style="color: green">Connected</span></h3>
       <div>
@@ -25,10 +25,11 @@ import {WebSocketService} from "../services/websocket.service";
       <p>Attempting to reconnect...</p>
     </ng-template>
   `,
-  styles: [`
+    styles: [`
     div { margin: 10px; }
     input { margin-right: 10px; }
-  `]
+  `],
+    standalone: false
 })
 export class WebsocketDemoComponent implements OnInit, OnDestroy {
   message = '';

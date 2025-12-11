@@ -7,9 +7,10 @@ import {TheScoreboardState} from '../../store/snooker-scoreboard-the-scoreboard.
 import * as scoreboardActions from '../../store/snooker-scoreboard-the-scoreboard.actions';
 
 @Component({
-  selector: 'app-player',
-  templateUrl: './snooker-player.component.html',
-  styleUrls: ['./snooker-player.component.scss']
+    selector: 'app-player',
+    templateUrl: './snooker-player.component.html',
+    styleUrls: ['./snooker-player.component.scss'],
+    standalone: false
 })
 export class SnookerPlayerComponent {
 
