@@ -9,6 +9,7 @@ import {WebSocketService} from "../../../socket-dispatcher/services/websocket.se
 })
 export class RemoteControlSnookerComponent {
 
+  mode: string = 'NORMAL';
   constructor(private webSocketService: WebSocketService ) { }
 
   public sendCommand(command: String): void {
@@ -17,5 +18,13 @@ export class RemoteControlSnookerComponent {
       message: command,
       sender: 'User'
     })
+  }
+
+  advancedMode(): void {
+    this.mode = 'ADVANCED';
+  }
+
+  normalMode(): void {
+    this.mode = 'NORMAL';
   }
 }

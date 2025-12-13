@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnDestroy} from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class WebSocketService {
-  private socket: WebSocket = new WebSocket('ws://localhost:3000');
+export class WebSocketService implements OnDestroy {
+  private socket!: WebSocket;
   private messageSubject = new Subject<any>();
   public messages$ = this.messageSubject.asObservable();
   private connectionStatus = new Subject<boolean>();
@@ -16,8 +17,13 @@ export class WebSocketService {
   }
 
   private connect(): void {
-    // Replace 'ws://your-node-server:port' with your actual Node.js server URL
-    this.socket = new WebSocket('ws://localhost:3000');
+    if(environment.production){
+
+      this.socket = new WebSocket('ws://'+window.location.host);
+    }else {
+      this.socket = new WebSocket('ws://localhost:3000');
+
+    }
 
     this.socket.onopen = () => {
       console.log('WebSocket connected');
@@ -60,5 +66,9 @@ export class WebSocketService {
     if (this.socket) {
       this.socket.close();
     }
+  }
+
+  ngOnDestroy(): void{
+    this.closeConnection();
   }
 }

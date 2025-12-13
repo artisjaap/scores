@@ -14,3 +14,5 @@ export const newGame = createAction('[THE-SCOREBOARD - new game]');
 export const restart = createAction('[THE-SCOREBOARD - restart]');
 
 export const setMode = createAction('[THE-SCOREBOARD - set mode]', props<{mode:ScoreboardMode}>());
+export const setPlayer1Name = createAction('[THE-SCOREBOARD -set player 1 name]', props<{name:string}>());
+export const setPlayer2Name = createAction('[THE-SCOREBOARD -set player 2 name]', props<{name:string}>());

@@ -10,7 +10,11 @@ http://localhost:8111
 
 ### build image
 ```shell
-podman build --no-cache -t angular-scoreboard .
+podman build --platform linux/arm64,linux/amd64 --no-cache -t angular-scoreboard .
+```
+
+start container
+```shell
 podman run -d -p 3000:3000 --name angular-scoreboard artisjaap/angular-scoreboard
 ```
 
@@ -18,7 +22,11 @@ podman run -d -p 3000:3000 --name angular-scoreboard artisjaap/angular-scoreboar
 
 ```shell
 podman login
+```
+```shell
 podman image tag angular-scoreboard artisjaap/angular-scoreboard
 podman image push artisjaap/angular-scoreboard
+````
+```shell
 podman logout
 ```

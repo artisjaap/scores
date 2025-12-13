@@ -8,7 +8,7 @@ import {
   potPink,
   potRed,
   potWhite,
-  potYellow, restart, setMode,
+  potYellow, restart, setMode, setPlayer1Name, setPlayer2Name,
   turnPlayer
 } from './snooker-scoreboard-the-scoreboard.actions';
 import {PlayerStats, TableStats, ScoreboardMode, BallColor} from '../model/model';
@@ -249,6 +249,20 @@ const createTheScoreboardReducer = createReducer(
   on(setMode,  (state: TheScoreboardState, {mode}) => ({
     ...state,
     mode: mode
+  })),
+  on(setPlayer1Name,  (state: TheScoreboardState, {name}) => ({
+    ...state,
+    player1: {
+      ...state.player1,
+      name: name
+    }
+  })),
+  on(setPlayer2Name,  (state: TheScoreboardState, {name}) => ({
+    ...state,
+    player2: {
+      ...state.player2,
+      name: name
+    }
   }))
 
 );

@@ -1,4 +1,45 @@
-<p>remote-control-snooker works!</p>
+@if (mode == "NORMAL") {
+  <div class="grid">
 
-<button (click)="sendCommand('pot red')">red</button>
-<button (click)="sendCommand('toggle remote')">remote</button>
+    <!-- RIJ 1 (3 kolommen) -->
+    <div class="cell red" (click)="sendCommand('pot red')">Red</div>
+    <div class="cell yellow" (click)="sendCommand('pot yellow')">Yellow</div>
+    <div class="cell green" (click)="sendCommand('pot green')">Green</div>
+
+    <!-- RIJ 2 (3 kolommen!) -->
+    <div class="cell brown" (click)="sendCommand('pot brown')">Brown</div>
+    <div class="cell blue" (click)="sendCommand('pot blue')">Blue</div>
+    <div class="cell pink" (click)="sendCommand('pot pink')">Pink</div>
+
+    <!-- RIJ 3 (3 kolommen) -->
+    <div class="cell black" (click)="sendCommand('pot black')">Black</div>
+    <div class="cell mode" (click)="sendCommand('mode normal')">Normal</div>
+    <div class="cell turn" (click)="sendCommand('turn player')">Turn</div>
+
+    <!-- RIJ 4 (3 kolommen) -->
+    <div class="cell mode" (click)="sendCommand('mode fault')">Fault</div>
+    <div class="cell mode" (click)="sendCommand('mode negative correction')">- correction</div>
+    <div class="cell mode" (click)="sendCommand('mode positive correction')">+ correction</div>
+
+    <!-- RIJ 5 (3 kolommen) -->
+    <div class="cell toggle-remote" (click)="sendCommand('toggle remote')">toggle remote</div>
+    <div class="cell new-game" (click)="sendCommand('new game')">new game</div>
+    <div class="cell advanced" (click)="advancedMode()">Advanced</div>
+  </div>
+} @else {
+  <div class="grid grid-advanced">
+    <div class="cell">Player 1</div>
+    <div class="cell input"><input type="text" #player1></div>
+    <div class="cell" (click)="sendCommand('update player 1 name('+player1.value+')')" >Update</div>
+
+    <div class="cell">Player 2</div>
+    <div class="cell input"><input type="text" #player2></div>
+    <div class="cell" (click)="sendCommand('update player 2 name('+player2.value+')')">Update</div>
+
+    <div class="cell advanced" (click)="sendCommand('restart')">Restart</div>
+    <div class="cell advanced" ></div>
+    <div class="cell advanced" ></div>
+    <div class="cell advanced" ></div>
+    <div class="cell advanced" (click)="normalMode()">Normal</div>
+  </div>
+}

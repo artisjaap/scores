@@ -10,8 +10,8 @@ import {
   potGreen,
   potPink,
   potRed,
-  potYellow,
-  setMode,
+  potYellow, restart,
+  setMode, setPlayer1Name, setPlayer2Name,
   turnPlayer
 } from "../../snooker/store/snooker-scoreboard-the-scoreboard.actions";
 import {ScoreboardMode} from "../../snooker/model/model";
@@ -36,9 +36,29 @@ export class SocketDispatchEffects {
           case "new game": return newGame();
           case "mode normal": return setMode({mode: ScoreboardMode.NORMAL});
           case "mode fault": return setMode({mode: ScoreboardMode.FAULT});
-          case "mode negative correct": return setMode({mode: ScoreboardMode.NEGATIVE_CORRECTION});
+          case "mode negative correction": return setMode({mode: ScoreboardMode.NEGATIVE_CORRECTION});
           case "mode positive correction": return setMode({mode: ScoreboardMode.POSITIVE_CORRECTION});
           case "toggle remote": return showRemoteControlQr();
+          case "restart": return restart();
+        }
+
+        //regex commands
+        switch(true){
+          case /update player ([1-2]) name\(.+\)/.test(message.command):
+
+            const player = message.command.match(/update player ([1-2]) name\((.+)\)/);
+
+            if(player){
+              if(player[1] === "1"){
+                return setPlayer1Name({name: player[2]});
+              }
+              if(player[1] === "2"){
+                return setPlayer2Name({name: player[2]});
+              }
+            }
+
+            break;
+
         }
         return noCommandOperation()
       })
