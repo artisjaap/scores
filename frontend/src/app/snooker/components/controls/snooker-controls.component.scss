@@ -17,17 +17,23 @@
   display: flex;
   flex-flow: row nowrap;
   padding: 10px;
+  margin: 10px 30px;
   justify-content: space-between;
-  background-color: #8080806e;
-}
+  border-radius: 50px;
+ }
 
 .game-corrections{
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  padding: 10px 0 0 0;
 }
 
 .mat-mdc-outlined-button {
+  &.ball {
+    margin: 0 5px;
+    border-width: 2px;
+  }
   &.ball-red {
     border-color: red;
     color: red;
@@ -41,33 +47,21 @@
     padding: 40px 60px;
   }
   &.ball-green {
-    border-color: darkgreen;
-    color: darkgreen;
-    background-color: #00640020;
+
     padding: 40px 60px;
   }
   &.ball-brown {
-    border-color: saddlebrown;
-    color: saddlebrown;
-    background-color: #8b451320;
+
     padding: 40px 60px;
   }
   &.ball-blue {
-    border-color: darkblue;
-    color: darkblue;
-    background-color: #00008b20;
+
     padding: 40px 60px;
   }
   &.ball-pink {
-    border-color: deeppink;
-    color: deeppink;
-    background-color: #ff149320;
     padding: 40px 60px;
   }
   &.ball-black {
-    border-color: black;
-    color: black;
-    background-color: #00000020;
     padding: 40px 60px;
   }
   &.ball-white {

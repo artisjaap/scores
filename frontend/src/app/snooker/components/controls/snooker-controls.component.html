@@ -5,24 +5,24 @@
     </div>
     <div class="game-overall">
       <span class="spacer"></span>
-      <button mat-stroked-button color="primary" (click)="reset()">Reset</button>
-      <button mat-stroked-button color="primary" (click)="newGame()">New Game</button>
+      <button mat-stroked-button color="primary" class="action-button" (click)="reset()">Reset</button>
+      <button mat-stroked-button color="primary" class="action-button" (click)="newGame()">New Game</button>
     </div>
     <div class="game-points">
-      <button mat-stroked-button color="primary" (click)="potRed()" class="ball-red">red ({{stats.red}})</button>
-      <button mat-stroked-button color="primary" (click)="potYellow()" class="ball-yellow">yellow ({{stats.yellow}})</button>
-      <button mat-stroked-button color="primary" (click)="potGreen()" class="ball-green">green ({{stats.green}})</button>
-      <button mat-stroked-button color="primary" (click)="potBrown()" class="ball-brown">brown ({{stats.brown}})</button>
-      <button mat-stroked-button color="primary" (click)="potBlue()" class="ball-blue">blue ({{stats.blue}})</button>
-      <button mat-stroked-button color="primary" (click)="potPink()" class="ball-pink">pink ({{stats.pink}})</button>
-      <button mat-stroked-button color="primary" (click)="potBlack()" class="ball-black">Black ({{stats.black}})</button>
-      <button mat-stroked-button color="primary" (click)="potWhite()" class="ball-white">White</button>
+      <button mat-stroked-button color="primary" (click)="potRed()" class="ball ball-red">red ({{stats.red}})</button>
+      <button mat-stroked-button color="primary" (click)="potYellow()" class="ball ball-yellow">yellow ({{stats.yellow}})</button>
+      <button mat-stroked-button color="primary" (click)="potGreen()" class="ball ball-green">green ({{stats.green}})</button>
+      <button mat-stroked-button color="primary" (click)="potBrown()" class="ball ball-brown">brown ({{stats.brown}})</button>
+      <button mat-stroked-button color="primary" (click)="potBlue()" class="ball ball-blue">blue ({{stats.blue}})</button>
+      <button mat-stroked-button color="primary" (click)="potPink()" class="ball ball-pink">pink ({{stats.pink}})</button>
+      <button mat-stroked-button color="primary" (click)="potBlack()" class="ball ball-black">Black ({{stats.black}})</button>
+      <button mat-stroked-button color="primary" (click)="potWhite()" class="ball ball-white">White</button>
     </div>
     <div class="game-corrections">
-      <button mat-stroked-button color="primary" (click)="normalMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.NORMAL}">Normal Mode</button>
-      <button mat-stroked-button color="primary" (click)="positiveCorrectionMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.POSITIVE_CORRECTION}">Correction +</button>
-      <button mat-stroked-button color="primary" (click)="negativeCorrectionMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.NEGATIVE_CORRECTION}">Correction -</button>
-      <button mat-stroked-button color="primary" (click)="changeNumberOfBallsMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.BALLS_LEFT_CORRECTION}">Change # Balls</button>
+      <button mat-stroked-button color="primary" class="action-button" (click)="normalMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.NORMAL}">Normal Mode</button>
+      <button mat-stroked-button color="primary" class="action-button" (click)="positiveCorrectionMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.POSITIVE_CORRECTION}">Correction +</button>
+      <button mat-stroked-button color="primary" class="action-button" (click)="negativeCorrectionMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.NEGATIVE_CORRECTION}">Correction -</button>
+      <button mat-stroked-button color="primary" class="action-button" (click)="changeNumberOfBallsMode()" [ngClass]="{ 'active': (gameMode$|async) === ScoreboardMode.BALLS_LEFT_CORRECTION}">Change # Balls</button>
       <app-qr-control></app-qr-control>
 
     </div>

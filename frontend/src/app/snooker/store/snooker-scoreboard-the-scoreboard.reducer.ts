@@ -131,17 +131,19 @@ function updateTableStats(mode: ScoreboardMode, tableStats: TableStats, color: B
     return {...updatedTableStats, maxPointsLeft: calculatePointsLeft(updatedTableStats)};
   }
    else if(mode === ScoreboardMode.BALLS_LEFT_CORRECTION) {
-    return {
-      ...tableStats,
-      red: color === BallColor.RED && tableStats.red > 0 ? tableStats.red - 1: 15,
-      yellow: color === BallColor.YELLOW?tableStats.yellow === 0?1:0:tableStats.yellow,
-      green: color === BallColor.GREEN?tableStats.green === 0?1:0:tableStats.green,
-      brown: color === BallColor.BROWN?tableStats.brown === 0?1:0:tableStats.brown,
-      blue: color === BallColor.BLUE?tableStats.blue === 0?1:0:tableStats.blue,
-      pink: color === BallColor.PINK?tableStats.pink === 0?1:0:tableStats.pink,
-      black: color === BallColor.BLACK?tableStats.black === 0?1:0:tableStats.black
-    };
-   } else {
+     let updatedTableStats = {
+       ...tableStats,
+       red: color === BallColor.RED && tableStats.red > 0 ? tableStats.red - 1: 15,
+       yellow: color === BallColor.YELLOW?tableStats.yellow === 0?1:0:tableStats.yellow,
+       green: color === BallColor.GREEN?tableStats.green === 0?1:0:tableStats.green,
+       brown: color === BallColor.BROWN?tableStats.brown === 0?1:0:tableStats.brown,
+       blue: color === BallColor.BLUE?tableStats.blue === 0?1:0:tableStats.blue,
+       pink: color === BallColor.PINK?tableStats.pink === 0?1:0:tableStats.pink,
+       black: color === BallColor.BLACK?tableStats.black === 0?1:0:tableStats.black
+     };
+     return {...updatedTableStats, maxPointsLeft: calculatePointsLeft(updatedTableStats)}
+
+   }  else {
     return {...tableStats}
    }
 }

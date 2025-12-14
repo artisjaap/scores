@@ -2,3 +2,144 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.full-screen {
+  height: 100%;
+}
+
+.theme-light {
+  background-color: white;
+
+  .player {
+    border-color: dodgerblue;
+    .name {
+      color: black;
+
+      &.current {
+        color: dodgerblue;
+      }
+    }
+  }
+
+  .mat-mdc-outlined-button {
+    &.ball-green {
+      border-color: darkgreen;
+      color: darkgreen;
+      background-color: #00640020;
+    }
+
+    &.ball-brown {
+      border-color: saddlebrown;
+      color: saddlebrown;
+      background-color: #8b451320;
+    }
+
+    &.ball-blue {
+      border-color: darkblue;
+      color: darkblue;
+      background-color: #00008b20;
+    }
+    &.ball-pink {
+      border-color: deeppink;
+      color: deeppink;
+      background-color: #ff149320;
+    }
+    &.ball-black {
+      border-color: black;
+      color: black;
+      background-color: #00000020;
+      padding: 40px 60px;
+    }
+  }
+
+  .game-points {
+    background-color: #8080806e;
+  }
+}
+
+.theme-dark {
+  background-color: black;
+
+  .player {
+    border: 1px solid dodgerblue;
+
+    box-shadow:0px 0px 24px 0px dodgerblue;
+
+    .name {
+      color: white;
+
+      &.current {
+        color: dodgerblue;
+      }
+    }
+
+    .score {
+      color: cornflowerblue;
+    }
+
+    .break {
+      color: yellowgreen;
+    }
+
+    .stats {
+      color: yellowgreen;
+    }
+  }
+
+  .mat-mdc-outlined-button {
+    &.ball-green {
+      margin: 0 5px;
+      color: greenyellow;
+      border-color: greenyellow;
+      background-color: #00640020;
+    }
+
+    &.ball-brown {
+      border-color: sandybrown;
+      color: sandybrown;
+      background-color: #8b451320;
+    }
+
+    &.ball-blue {
+      border-color: deepskyblue;
+      color: deepskyblue;
+      background-color: #00008b20;
+    }
+    &.ball-pink {
+      border-color: deeppink;
+      color: deeppink;
+      background-color: #ff149320;
+    }
+    &.ball-black {
+      border-color: gray;
+      color: gray;
+      background-color: #00000020;
+    }
+
+
+  }
+
+  .game-break-info {
+    color: yellowgreen;
+  }
+
+  .game-points{
+    border: 1px solid dodgerblue;
+    box-shadow:0px 0px 24px 0px dodgerblue;
+  }
+
+  .game-corrections, .game-overall {
+    .action-button {
+      border: 2px solid deepskyblue;
+      color: deepskyblue;
+      margin: 5px 10px;
+
+      &.active {
+
+        border: 2px solid dodgerblue;
+        color: dodgerblue;
+      }
+    }
+
+  }
+}

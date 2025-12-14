@@ -38,6 +38,7 @@ export class SocketDispatchEffects {
           case "mode fault": return setMode({mode: ScoreboardMode.FAULT});
           case "mode negative correction": return setMode({mode: ScoreboardMode.NEGATIVE_CORRECTION});
           case "mode positive correction": return setMode({mode: ScoreboardMode.POSITIVE_CORRECTION});
+          case "mode change balls": return setMode({mode: ScoreboardMode.BALLS_LEFT_CORRECTION});
           case "toggle remote": return showRemoteControlQr();
           case "restart": return restart();
         }

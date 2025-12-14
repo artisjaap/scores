@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "lirc_node": "^0.0.4",
+    "node-lirc": "^0.0.4",
+    "ws": "^8.18.3"
+  }
+}
