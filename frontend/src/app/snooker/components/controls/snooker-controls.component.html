@@ -1,7 +1,7 @@
 @if (scoreboardStats$ | async; as stats) {
   <div>
     <div class="game-break-info">
-      {{stats.maxPointsLeft}}
+      Points Left: {{stats.maxPointsLeft}}
     </div>
     <div class="game-overall">
       <span class="spacer"></span>
@@ -26,8 +26,7 @@
       <app-qr-control></app-qr-control>
 
     </div>
-    <div class="game-status">
-    </div>
+
   </div>
 }
 

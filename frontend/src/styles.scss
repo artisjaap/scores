@@ -1,10 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.full-screen {
+html, body {
   height: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.full-screen-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+
+  .header {
+    padding: 10px;
+    flex-shrink: 0;
+
+    &.icon-menu {
+      span {
+        margin: 3px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .main {
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
+  .footer {
+    padding: 10px;
+    flex-shrink: 0;
+  }
+
+  .game-status {
+    padding: 10px;
+    flex-shrink: 0;
+    text-align: right;
+    color: grey;
+    font-size: 0.8em;
+  }
 }
 
 .theme-light {
@@ -82,6 +120,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 
     .stats {
+      font-size: 1.4vw;
       color: yellowgreen;
     }
   }

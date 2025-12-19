@@ -1,4 +1,12 @@
 
-<div class="full-screen theme-dark">
+<div class="full-screen-container theme-dark">
+  <div class="header fully-inflexible icon-menu" >
+    <span [routerLink]="['/snooker', 'scoreboard']" >
+      <img src="/assets/billiard-svgrepo-com.svg" width="24px" alt="">
+    </span>
+    <span [routerLink]="['/darts', 'scoreboard']" >
+      <img src="/assets/darts-svgrepo-com.svg" width="24px" alt="">
+    </span>
+  </div>
   <router-outlet></router-outlet>
 </div>
