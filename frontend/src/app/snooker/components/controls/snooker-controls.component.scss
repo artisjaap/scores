@@ -38,31 +38,38 @@
     border-color: red;
     color: red;
     background-color: #ff000020;
-    padding: 40px 60px;
+    padding: 40px 20px;
+    flex: 1;
   }
   &.ball-yellow {
     border-color: yellow;
     color: yellow;
     background-color: #ffff0020;
-    padding: 40px 60px;
+    padding: 40px 20px;
+    flex: 1;
   }
   &.ball-green {
 
-    padding: 40px 60px;
+    padding: 40px 20px;
+    flex: 1;
   }
   &.ball-brown {
 
-    padding: 40px 60px;
+    padding: 40px 20px;
+    flex: 1;
   }
   &.ball-blue {
 
-    padding: 40px 60px;
+    padding: 40px 20px;
+    flex: 1;
   }
   &.ball-pink {
-    padding: 40px 60px;
+    padding: 40px 20px;
+    flex: 1;
   }
   &.ball-black {
-    padding: 40px 60px;
+    padding: 40px 20px;
+    flex: 1;
   }
   &.ball-white {
     border-color: white;
