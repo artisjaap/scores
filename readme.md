@@ -24,8 +24,8 @@ podman run -d -p 3000:3000 --name angular-scoreboard artisjaap/angular-scoreboar
 podman login
 ```
 ```shell
-podman image tag angular-scoreboard artisjaap/angular-scoreboard:1.2
-podman image push artisjaap/angular-scoreboard:1.2
+podman image tag angular-scoreboard artisjaap/angular-scoreboard:1.3
+podman image push artisjaap/angular-scoreboard:1.3
 ````
 ```shell
 podman logout
