@@ -8,10 +8,14 @@ import {
   potPink,
   potRed,
   potWhite,
-  potYellow, restart, setMode, setPlayer1Name, setPlayer2Name,
+  potYellow,
+  restart,
+  setMode,
+  setPlayer1Name,
+  setPlayer2Name,
   turnPlayer
 } from './snooker-scoreboard-the-scoreboard.actions';
-import {PlayerStats, TableStats, ScoreboardMode, BallColor} from '../model/model';
+import {BallColor, PlayerStats, ScoreboardMode, TableStats} from '../model/model';
 
 export const theScoreboardFeatureKey = 'theScoreboard';
 
@@ -38,7 +42,9 @@ export const theScoreboardInitialState: TheScoreboardState = {
     highestBreak: 0,
     score: 0,
     matchHighestBreak: 0,
-    currentPlayer: true
+    currentPlayer: true,
+    ballHistory: [],
+    health: 100
   },
   player2: {
     name: 'Player 2',
@@ -47,7 +53,9 @@ export const theScoreboardInitialState: TheScoreboardState = {
     highestBreak: 0,
     score: 0,
     matchHighestBreak: 0,
-    currentPlayer: false
+    currentPlayer: false,
+    ballHistory: [],
+    health: 100
   },
 
   tableStats: {
@@ -77,13 +85,26 @@ function calculateError(state: TheScoreboardState) {
   return 4;
 }
 
-function updateScoreForPlayer(mode: ScoreboardMode, player: PlayerStats, points: number, tableStatBallsLeft: number) {
+function updateScoreForPlayer(state: TheScoreboardState, player: PlayerStats, points: number, tableStatBallsLeft: number) {
+  let mode = state.mode;
+
   if(mode === ScoreboardMode.NORMAL) {
+    let health = 100;
+    let scoreDifference = player === state.player1? state.player1.score + points - state.player2.score: state.player2.score + points - state.player1.score;
+
+    if(scoreDifference < 0 && scoreDifference + state.tableStats.maxPointsLeft > 0 ) {
+      health = 50;
+    }else if(scoreDifference < 0 && scoreDifference + state.tableStats.maxPointsLeft < 0){
+      health = 0;
+    }
+
     return {
       ...player,
       score: player.currentPlayer && tableStatBallsLeft > 0 ? player.score + points : player.score,
       break: player.currentPlayer && tableStatBallsLeft > 0 ? player.break + points : player.break,
       highestBreak:player.currentPlayer  && tableStatBallsLeft > 0 && player.break  + points > player.highestBreak? player.break + points: player.highestBreak,
+      ballHistory: player.currentPlayer? [...player.ballHistory, points-1] : player.ballHistory,
+      health: health,
     }
   }
   else if(mode === ScoreboardMode.FAULT){
@@ -168,50 +189,50 @@ const createTheScoreboardReducer = createReducer(
   on(potRed, (state: TheScoreboardState) => ({
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
-    player1: updateScoreForPlayer(state.mode, state.player1, 1, state.tableStats.red),
-    player2: updateScoreForPlayer(state.mode, state.player2, 1, state.tableStats.red),
+    player1: updateScoreForPlayer(state, state.player1, 1, state.tableStats.red),
+    player2: updateScoreForPlayer(state, state.player2, 1, state.tableStats.red),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.RED)
   })),
   on(potYellow, (state: TheScoreboardState) => ({
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
-    player1: updateScoreForPlayer(state.mode, state.player1, 2, state.tableStats.yellow),
-    player2: updateScoreForPlayer(state.mode, state.player2, 2, state.tableStats.yellow),
+    player1: updateScoreForPlayer(state, state.player1, 2, state.tableStats.yellow),
+    player2: updateScoreForPlayer(state, state.player2, 2, state.tableStats.yellow),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.YELLOW)
   })),
   on(potGreen, (state: TheScoreboardState) => ({
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
-    player1: updateScoreForPlayer(state.mode, state.player1, 3, state.tableStats.green),
-    player2: updateScoreForPlayer(state.mode, state.player2, 3, state.tableStats.green),
+    player1: updateScoreForPlayer(state, state.player1, 3, state.tableStats.green),
+    player2: updateScoreForPlayer(state, state.player2, 3, state.tableStats.green),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.GREEN)
   })),
   on(potBrown, (state: TheScoreboardState) => ({
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
-    player1: updateScoreForPlayer(state.mode, state.player1, 4, state.tableStats.brown),
-    player2: updateScoreForPlayer(state.mode, state.player2, 4, state.tableStats.brown),
+    player1: updateScoreForPlayer(state, state.player1, 4, state.tableStats.brown),
+    player2: updateScoreForPlayer(state, state.player2, 4, state.tableStats.brown),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.BROWN)
   })),
   on(potBlue, (state: TheScoreboardState) => ({
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
-    player1: updateScoreForPlayer(state.mode, state.player1, 5, state.tableStats.blue),
-    player2: updateScoreForPlayer(state.mode, state.player2, 5, state.tableStats.blue),
+    player1: updateScoreForPlayer(state, state.player1, 5, state.tableStats.blue),
+    player2: updateScoreForPlayer(state, state.player2, 5, state.tableStats.blue),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.BLUE)
   })),
   on(potPink, (state: TheScoreboardState) => ({
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
-    player1: updateScoreForPlayer(state.mode, state.player1, 6, state.tableStats.pink),
-    player2: updateScoreForPlayer(state.mode, state.player2, 6, state.tableStats.pink),
+    player1: updateScoreForPlayer(state, state.player1, 6, state.tableStats.pink),
+    player2: updateScoreForPlayer(state, state.player2, 6, state.tableStats.pink),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.PINK)
   })),
   on(potBlack, (state: TheScoreboardState) => ({
     ...state,
     mode:  state.mode === ScoreboardMode.FAULT? ScoreboardMode.NORMAL: state.mode,
-    player1: updateScoreForPlayer(state.mode, state.player1, 7, state.tableStats.black),
-    player2: updateScoreForPlayer(state.mode, state.player2, 7, state.tableStats.black),
+    player1: updateScoreForPlayer(state, state.player1, 7, state.tableStats.black),
+    player2: updateScoreForPlayer(state, state.player2, 7, state.tableStats.black),
     tableStats: updateTableStats(state.mode, state.tableStats, BallColor.BLACK)
   })),
   on(potWhite, (state: TheScoreboardState) => ({

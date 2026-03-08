@@ -1,5 +1,5 @@
 @if (player$ | async; as player) {
-  <div class="player" (click)="switchPlayer()">
+  <div class="player" [ngClass]="{'health-good': player.health === 100, 'health-medium': player.health === 50, 'health-bad': player.health === 0}" (click)="switchPlayer()">
     <div class="name"  [ngClass]="{'current':player.currentPlayer}">{{player.name}}</div>
     <div class="score"  [ngClass]="{ 'fault': (gameMode$|async) === ScoreboardMode.FAULT}">{{player.score}}</div>
     <div class="break">{{player.break}}</div>
@@ -7,6 +7,21 @@
       <div class="frames">Frames Won: {{player.framesWon}}</div>
       <div class="highestbreak">Highest Break: {{player.highestBreak}}</div>
       <div class="frames">Highest Break (Match): {{player.matchHighestBreak}}</div>
+    </div>
+    <div class="pot-history">
+
+      @for(b of player.ballHistory; track b) {
+        <span class="ball" [ngClass]="{ 'ball-red': b === BallColor.RED,
+         'ball-yellow': b === BallColor.YELLOW,
+         'ball-green': b === BallColor.GREEN,
+         'ball-brown': b === BallColor.BROWN,
+         'ball-blue': b === BallColor.BLUE,
+         'ball-pink': b === BallColor.PINK,
+         'ball-black': b === BallColor.BLACK,
+          }" >
+
+        </span>
+      }
     </div>
   </div>
 }

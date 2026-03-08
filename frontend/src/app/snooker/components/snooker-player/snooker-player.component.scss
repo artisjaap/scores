@@ -44,3 +44,57 @@
   flex-flow: row nowrap;
   justify-content: space-between;
 }
+
+.pot-history {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  margin: 10px 0;
+  min-height: 30px;
+  .ball {
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+    border-width: 2px;
+    border: 2px solid;
+    border-radius: 50%;
+
+    &.ball-red {
+      border-color: red;
+      color: red;
+      background-color: red;
+    }
+    &.ball-yellow {
+      border-color: yellow;
+      color: yellow;
+      background-color: yellow;
+    }
+    &.ball-green {
+      color: greenyellow;
+      border-color: greenyellow;
+      background-color: greenyellow;
+    }
+
+    &.ball-brown {
+      border-color: sandybrown;
+      color: sandybrown;
+      background-color: sandybrown;
+    }
+
+    &.ball-blue {
+      border-color: deepskyblue;
+      color: deepskyblue;
+      background-color: deepskyblue;
+    }
+    &.ball-pink {
+      border-color: deeppink;
+      color: deeppink;
+      background-color: deeppink;
+    }
+    &.ball-black {
+      border-color: gray;
+      color: gray;
+      background-color: gray;
+    }
+  }
+}

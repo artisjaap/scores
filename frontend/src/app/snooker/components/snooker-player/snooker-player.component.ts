@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {PlayerStats, ScoreboardMode} from '../../model/model';
+import {BallColor, PlayerStats, ScoreboardMode} from '../../model/model';
 import {Observable} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {getMode} from '../../store/snooker-scoreboard-the-scoreboard.selector';
@@ -29,4 +29,6 @@ export class SnookerPlayerComponent {
       this.state.dispatch(scoreboardActions.turnPlayer());
 
   }
+
+  protected readonly BallColor = BallColor;
 }

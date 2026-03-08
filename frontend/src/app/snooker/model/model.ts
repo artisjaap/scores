@@ -6,6 +6,8 @@ export interface PlayerStats {
   framesWon: number;
   matchHighestBreak: number;
   currentPlayer: boolean;
+  ballHistory: BallColor[];
+  health: number;
 }
 
 export interface TableStats {
