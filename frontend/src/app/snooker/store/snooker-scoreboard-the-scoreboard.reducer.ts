@@ -13,9 +13,9 @@ import {
   setMode,
   setPlayer1Name,
   setPlayer2Name,
-  turnPlayer
+  turnPlayer, undoAction
 } from './snooker-scoreboard-the-scoreboard.actions';
-import {BallColor, PlayerStats, ScoreboardMode, TableStats} from '../model/model';
+import {BallColor, GameHistory, PlayerStats, ScoreboardMode, TableStats} from '../model/model';
 
 export const theScoreboardFeatureKey = 'theScoreboard';
 
@@ -24,11 +24,11 @@ export interface TheScoreboardState {
 
   playerStarted: number;
   mode: ScoreboardMode;
-
-  player1: PlayerStats,
-  player2: PlayerStats,
-
-  tableStats: TableStats
+  player1: PlayerStats;
+  player2: PlayerStats;
+  tableStats: TableStats;
+  gameHistory: GameHistory[];
+  stateHistory: TheScoreboardState[];
 }
 
 export const theScoreboardInitialState: TheScoreboardState = {
@@ -69,6 +69,8 @@ export const theScoreboardInitialState: TheScoreboardState = {
     maxPointsLeft: 147,
     extraYellow: true
   },
+  gameHistory: [],
+  stateHistory: [],
 };
 
 function calculatePointsLeft(tableStats: TableStats) {
@@ -201,6 +203,7 @@ const createTheScoreboardReducer = createReducer(
       player1: playerResult.player1,
       player2: playerResult.player2,
       tableStats: playerResult.tableStats,
+      stateHistory: [...state.stateHistory, state]
     }
   }),
   on(potYellow, (state: TheScoreboardState) => {
@@ -211,6 +214,7 @@ const createTheScoreboardReducer = createReducer(
       player1: playerResult.player1,
       player2: playerResult.player2,
       tableStats: playerResult.tableStats,
+      stateHistory: [...state.stateHistory, state]
     }
   }),
   on(potGreen, (state: TheScoreboardState) => {
@@ -221,6 +225,7 @@ const createTheScoreboardReducer = createReducer(
       player1: playerResult.player1,
       player2: playerResult.player2,
       tableStats: playerResult.tableStats,
+      stateHistory: [...state.stateHistory, state]
     }
   }),
   on(potBrown, (state: TheScoreboardState) => {
@@ -231,6 +236,7 @@ const createTheScoreboardReducer = createReducer(
       player1: playerResult.player1,
       player2: playerResult.player2,
       tableStats: playerResult.tableStats,
+      stateHistory: [...state.stateHistory, state]
     }
   }),
   on(potBlue, (state: TheScoreboardState) => {
@@ -241,6 +247,7 @@ const createTheScoreboardReducer = createReducer(
       player1: playerResult.player1,
       player2: playerResult.player2,
       tableStats: playerResult.tableStats,
+      stateHistory: [...state.stateHistory, state]
     }
   }),
   on(potPink, (state: TheScoreboardState) => {
@@ -251,6 +258,7 @@ const createTheScoreboardReducer = createReducer(
       player1: playerResult.player1,
       player2: playerResult.player2,
       tableStats: playerResult.tableStats,
+      stateHistory: [...state.stateHistory, state]
     }
   }),
   on(potBlack, (state: TheScoreboardState) => {
@@ -261,12 +269,13 @@ const createTheScoreboardReducer = createReducer(
       player1: playerResult.player1,
       player2: playerResult.player2,
       tableStats: playerResult.tableStats,
+      stateHistory: [...state.stateHistory, state]
     }
   }),
   on(potWhite, (state: TheScoreboardState) => ({
     ...state,
     mode: ScoreboardMode.FAULT,
-
+    stateHistory: [...state.stateHistory, state]
   })),
   on(restart, (state: TheScoreboardState) => ({
     ...theScoreboardInitialState
@@ -282,7 +291,8 @@ const createTheScoreboardReducer = createReducer(
       score: 0,
       framesWon: state.player1.score > state.player2.score ? state.player1.framesWon + 1 : state.player1.framesWon,
       matchHighestBreak: state.player1.highestBreak > state.player1.matchHighestBreak ? state.player1.highestBreak : state.player1.matchHighestBreak,
-      currentPlayer: state.playerStarted === 2
+      currentPlayer: state.playerStarted === 2,
+      ballHistory: []
     },
     player2: {
       ...state.player2,
@@ -291,11 +301,14 @@ const createTheScoreboardReducer = createReducer(
       score: 0,
       framesWon: state.player2.score > state.player1.score ? state.player2.framesWon + 1 : state.player2.framesWon,
       matchHighestBreak: state.player2.highestBreak > state.player2.matchHighestBreak ? state.player2.highestBreak : state.player2.matchHighestBreak,
-      currentPlayer: state.playerStarted === 1
+      currentPlayer: state.playerStarted === 1,
+      ballHistory: []
     },
     tableStats: {
       ...theScoreboardInitialState.tableStats
-    }
+    },
+    gameHistory: [...state.gameHistory, {player1: state.player1, player2: state.player2}],
+    stateHistory: [...state.stateHistory, state]
   })),
   on(setMode, (state: TheScoreboardState, {mode}) => ({
     ...state,
@@ -314,7 +327,18 @@ const createTheScoreboardReducer = createReducer(
       ...state.player2,
       name: name
     }
-  }))
+  })),
+  on(undoAction, (state: TheScoreboardState, {}) => {
+    if(state.stateHistory.length === 0) {
+      return state;
+    }
+    return{
+    ...state,
+    stateHistory: state.stateHistory.slice(0, state.stateHistory.length - 1),
+    player1: state.stateHistory[state.stateHistory.length - 1].player1,
+    player2: state.stateHistory[state.stateHistory.length - 1].player2,
+    tableStats: state.stateHistory[state.stateHistory.length - 1].tableStats,
+  }})
 );
 
 export function theScoreboardReducer(state: TheScoreboardState | undefined, action: Action) {

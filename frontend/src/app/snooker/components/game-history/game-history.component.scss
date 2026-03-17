@@ -1,0 +1,63 @@
+.game-history {
+  display: flex;
+  flex-flow: row nowrap;
+
+  .game-header {
+    background-color: dodgerblue;
+
+    flex: 0;
+    flex-flow: column nowrap;
+    font-weight: bold;
+    color: cornflowerblue;
+    min-width: 80px;
+    margin: 1px 5px;
+    border-radius: 15px;
+
+    .score {
+      padding: 5px 5px;
+      color: black;
+      text-align: center;
+
+      &:first-child {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+
+  .game {
+    flex: 0;
+    flex-flow: column nowrap;
+    font-weight: bold;
+    color: cornflowerblue;
+    min-width: 80px;
+    margin: 1px 5px;
+    border-radius: 15px;
+
+    .score {
+      padding: 5px 5px;
+      color: black;
+      text-align: center;
+
+      &:first-child {
+        border-bottom: 1px solid black;
+      }
+
+      &.winner {
+        background-color: greenyellow;
+
+      }
+
+
+
+    }
+
+    background-color: deepskyblue;
+
+    &:nth-child(odd) {
+      background-color: deepskyblue;
+
+    }
+  }
+
+
+}

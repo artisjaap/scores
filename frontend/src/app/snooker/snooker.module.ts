@@ -10,22 +10,25 @@ import {SnookerPlayerComponent} from './components/snooker-player/snooker-player
 import {SnookerScoreboardComponent} from './components/snooker-scoreboard/snooker-scoreboard.component';
 import {MatButtonModule} from '@angular/material/button';
 import {QrControlComponent} from "../components/qr-control/qr-control.component";
+import {GameHistoryComponent} from "./components/game-history/game-history.component";
 
 
 
 @NgModule({
-  declarations: [
-    SnookerScoreboardComponent,
-    SnookerPlayerComponent,
-    SnookerControlsComponent,
-    SnookerLandingComponent
-  ],
+    declarations: [
+        SnookerScoreboardComponent,
+        SnookerPlayerComponent,
+        SnookerControlsComponent,
+        SnookerLandingComponent,
+        QrControlComponent
+    ],
     imports: [
         CommonModule,
         SnookerRoutingModule,
         StoreModule.forFeature(snookerScoreboardReducer.snookerScoreboardFeatureKey, snookerScoreboardReducer.reducers),
         MatButtonModule,
-        QrControlComponent
+        QrControlComponent,
+        GameHistoryComponent
     ]
 })
 export class SnookerModule { }

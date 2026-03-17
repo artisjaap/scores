@@ -81,7 +81,10 @@ export class SnookerControlsComponent {
 
   changeNumberOfBallsMode(){
     this.state.dispatch(scoreboardActions.setMode({mode:ScoreboardMode.BALLS_LEFT_CORRECTION}));
+  }
 
+  undoAction(){
+    this.state.dispatch(scoreboardActions.undoAction());
   }
 
   protected readonly ScoreboardMode = ScoreboardMode;

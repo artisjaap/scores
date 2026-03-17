@@ -10,12 +10,13 @@ http://localhost:8111
 
 ### build image
 ```shell
-podman build --platform linux/arm64,linux/amd64 --no-cache -t angular-scoreboard .
+podman build --platform linux/arm64 --no-cache -t angular-scoreboard:1.6-arm64 .
+podman build --platform linux/amd64 --no-cache -t angular-scoreboard:1.6-amd64 .
 ```
 
 start container
 ```shell
-podman run -d -p 3000:3000 --name angular-scoreboard artisjaap/angular-scoreboard
+podman run -d -p 3000:3000 --name angular-scoreboard angular-scoreboard:1.6-amd64
 ```
 
 ### push image

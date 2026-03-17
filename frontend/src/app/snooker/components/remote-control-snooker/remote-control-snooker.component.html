@@ -22,7 +22,7 @@
     <div class="cell mode" (click)="sendCommand('mode positive correction')">+ correction</div>
 
     <!-- RIJ 5 (3 kolommen) -->
-    <div class="cell toggle-remote" (click)="sendCommand('toggle remote')">toggle remote</div>
+    <div class="cell mode" (click)="sendCommand('undo')">undo</div>
     <div class="cell new-game" (click)="sendCommand('new game')">new game</div>
     <div class="cell advanced" (click)="advancedMode()">Advanced</div>
   </div>
@@ -38,7 +38,7 @@
 
     <div class="cell advanced" (click)="sendCommand('restart')">Restart</div>
     <div class="cell advanced" (click)="sendCommand('mode change balls')">Change balls</div>
-    <div class="cell advanced" ></div>
+    <div class="cell advanced" (click)="sendCommand('toggle remote')">toggle remote</div>
     <div class="cell advanced" ></div>
     <div class="cell advanced" (click)="normalMode()">Normal</div>
   </div>

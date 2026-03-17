@@ -1,0 +1,27 @@
+<div class="game-history">
+
+@if (gameHistory$ | async; as history) {
+
+  <div class="game-header">
+    <div class="score">Player 1</div>
+    <div class="score">Player 2</div>
+  </div>
+
+  @for (game of history; track game) {
+    <div class="game">
+      <div>
+        <div class="score" [ngClass]="{'winner':game.player1.score > game.player2.score}">
+          {{game.player1.score}}
+        </div>
+      </div>
+      <div>
+        <div class="score" [ngClass]="{'winner':game.player2.score > game.player1.score}">
+          {{game.player2.score}}
+        </div>
+      </div>
+
+    </div>
+  }
+}
+
+</div>

@@ -12,7 +12,7 @@ import {
   potRed,
   potYellow, restart,
   setMode, setPlayer1Name, setPlayer2Name,
-  turnPlayer
+  turnPlayer, undoAction
 } from "../../snooker/store/snooker-scoreboard-the-scoreboard.actions";
 import {ScoreboardMode} from "../../snooker/model/model";
 import {showRemoteControlQr} from "../../store/scoreboard.actions";
@@ -41,6 +41,7 @@ export class SocketDispatchEffects {
           case "mode change balls": return setMode({mode: ScoreboardMode.BALLS_LEFT_CORRECTION});
           case "toggle remote": return showRemoteControlQr();
           case "restart": return restart();
+          case "undo": return undoAction();
         }
 
         //regex commands

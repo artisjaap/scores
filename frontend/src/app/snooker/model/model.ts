@@ -20,7 +20,11 @@ export interface TableStats {
   black: number;
   maxPointsLeft: number;
   extraYellow: boolean;
+}
 
+export interface GameHistory {
+  player1: PlayerStats;
+  player2: PlayerStats;
 }
 
 export enum ScoreboardMode {
