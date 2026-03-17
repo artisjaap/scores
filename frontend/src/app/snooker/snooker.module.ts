@@ -15,13 +15,14 @@ import {GameHistoryComponent} from "./components/game-history/game-history.compo
 
 
 @NgModule({
-    declarations: [
-        SnookerScoreboardComponent,
-        SnookerPlayerComponent,
-        SnookerControlsComponent,
-        SnookerLandingComponent,
-        QrControlComponent
-    ],
+  declarations: [
+    SnookerScoreboardComponent,
+    SnookerPlayerComponent,
+    SnookerControlsComponent,
+    SnookerLandingComponent,
+    QrControlComponent,
+    GameHistoryComponent
+  ],
     imports: [
         CommonModule,
         SnookerRoutingModule,
