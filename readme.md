@@ -107,3 +107,23 @@ and run
 npm install
 node node-remote.js
 ```
+
+#### Samsung remote control mapping
+- KEY_1 = pot red
+- KEY_2 = pot yellow
+- KEY_3 = pot green
+- KEY_4 = pot brown
+- KEY_5 = pot blue
+- KEY_6 = pot pink
+- KEY_7 = pot black
+- KEY_9 = undo
+- KEY_0 = turn player
+- KEY_B = new game
+- KEY_D = shutdown
+- KEY_HOME = mode normal
+- KEY_PREVIOUS = mode fault
+- KEY_PLAY = mode negative correction
+- KEY_PAUSE = mode positive correction
+- KEY_NEXT = mode change
+- KEY_TEXT = toggle remote
+- KEY_EXIT = restart

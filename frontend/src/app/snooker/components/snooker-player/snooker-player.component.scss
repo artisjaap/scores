@@ -47,7 +47,7 @@
 
 .pot-history {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: left;
   margin: 10px 0;
   min-height: 30px;
@@ -62,39 +62,40 @@
     &.ball-red {
       border-color: red;
       color: red;
-      background-color: red;
+      background-color: #ff000020;
     }
     &.ball-yellow {
       border-color: yellow;
       color: yellow;
-      background-color: yellow;
+      background-color: #ffff0020;
     }
     &.ball-green {
-      color: greenyellow;
-      border-color: greenyellow;
-      background-color: greenyellow;
+      border-color: darkgreen;
+      color: darkgreen;
+      background-color: #00640020;
     }
 
     &.ball-brown {
-      border-color: sandybrown;
-      color: sandybrown;
-      background-color: sandybrown;
+      border-color: saddlebrown;
+      color: saddlebrown;
+      background-color: #8b451320;
     }
 
     &.ball-blue {
-      border-color: deepskyblue;
-      color: deepskyblue;
-      background-color: deepskyblue;
+      border-color: darkblue;
+      color: darkblue;
+      background-color: #00008b20;
     }
     &.ball-pink {
       border-color: deeppink;
       color: deeppink;
-      background-color: deeppink;
+      background-color: #ff149320;
     }
     &.ball-black {
-      border-color: gray;
-      color: gray;
-      background-color: gray;
+      border-color: black;
+      color: black;
+      background-color: #00000020;
+
     }
   }
 }

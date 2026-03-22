@@ -9,10 +9,9 @@ import {showRemoteControlQr} from "../../store/scoreboard.actions";
 
 @Component({
   selector: 'app-qr-control',
-  imports: [
-  ],
   templateUrl: './qr-control.component.html',
   styleUrl: './qr-control.component.scss',
+  standalone: true
 })
 export class QrControlComponent {
   readonly dialog = inject(MatDialog);

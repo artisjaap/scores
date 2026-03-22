@@ -20,16 +20,14 @@ import {GameHistoryComponent} from "./components/game-history/game-history.compo
     SnookerPlayerComponent,
     SnookerControlsComponent,
     SnookerLandingComponent,
-    QrControlComponent,
-    GameHistoryComponent
   ],
-    imports: [
-        CommonModule,
-        SnookerRoutingModule,
-        StoreModule.forFeature(snookerScoreboardReducer.snookerScoreboardFeatureKey, snookerScoreboardReducer.reducers),
-        MatButtonModule,
-        QrControlComponent,
-        GameHistoryComponent
-    ]
+  imports: [
+    CommonModule,
+    SnookerRoutingModule,
+    StoreModule.forFeature(snookerScoreboardReducer.snookerScoreboardFeatureKey, snookerScoreboardReducer.reducers),
+    MatButtonModule,
+    GameHistoryComponent,
+    QrControlComponent,
+  ]
 })
 export class SnookerModule { }

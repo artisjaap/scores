@@ -14,6 +14,7 @@ import {AsyncPipe, NgClass} from "@angular/common";
   ],
   templateUrl: './game-history.component.html',
   styleUrl: './game-history.component.scss',
+  standalone: true
 })
 export class GameHistoryComponent {
 

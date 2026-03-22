@@ -9,7 +9,7 @@
     flex-flow: column nowrap;
     font-weight: bold;
     color: cornflowerblue;
-    min-width: 80px;
+
     margin: 1px 5px;
     border-radius: 15px;
 
@@ -17,6 +17,7 @@
       padding: 5px 5px;
       color: black;
       text-align: center;
+      text-wrap: nowrap;
 
       &:first-child {
         border-bottom: 1px solid black;
